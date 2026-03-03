@@ -1,29 +1,41 @@
-# Source Folder
+# TM4C123 Ultrasonic Ranger Finder
 
-Put all `.c/.h` files here.
+Embedded firmware project using the TM4C123 (ARM Cortex-M4) microcontroller to measure distance with an HC-SR04 ultrasonic sensor and report results over UART.
 
-- `PLL.c`
-- `PLL.h`
+## Overview
 
-- `UART0.c`
-- `UART0.h`
+This project implements an interrupt-driven ultrasonic distance measurement system. The firmware generates trigger pulses, measures echo pulse width using hardware timers, and converts time-of-flight to distance in centimeters.
 
-- `Systick.c`
-- `Systick.h`
+## Features
 
-- `LED.c`
-- `LED.h`
+- PLL configuration for 16 MHz system clock
+- 16-bit General Purpose Timer (GPTM) configuration
+- Input capture for echo pulse-width measurement
+- Integer-based distance calculation (optimized for microcontroller)
+- UART0 serial output (57600 baud)
+- SysTick-based LED status indication
+- Modular driver structure (Blink, UART, PLL, Ultrasonic, SysTick)
 
-- `Delay.c`
-- `Delay.h`
+## Hardware
 
-- `Blink.c`
-- `Blink.h`
+- TM4C123 LaunchPad
+- HC-SR04 Ultrasonic Sensor
+- Voltage divider for echo pin (5V → 3.3V)
 
-- `Switch.c`
-- `Switch.h`
+## My Contribution
 
-- `Ultrasonic.c`
-- `Ultrasonic.h`
+Worked as part of a team project. My contributions included:
+- Timer configuration and pulse-width measurement logic
+- UART reporting implementation
+- Debugging hardware–software integration using oscilloscopes and logic analyzers
 
-- `main.c`
+## How It Works (High-Level)
+
+1. Trigger pulse sent to ultrasonic sensor  
+2. Echo signal captured using timer input capture  
+3. Pulse duration converted to distance  
+4. Distance displayed via UART and LED status
+
+---
+
+This project demonstrates embedded systems development including timer configuration, interrupt handling, and hardware integration.
